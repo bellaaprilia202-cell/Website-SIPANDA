@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WEBSITE SI PANDA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #003366 !important;
+    }
+    .navbar-brand,
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url('BGABBY.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #a8d0ff; /* biru pastel */
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+    .btn-primary {
+      background-color: #ffc107;
+      border: none;
+      color: #003366;
+      font-weight: bold;
+      padding: 12px 28px;
+      border-radius: 30px;
+      transition: 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #e0a800;
+      transform: scale(1.05);
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.8rem;
+      color: #003366;
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      width: 70px;
+      height: 3px;
+      background: #ffc107;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 3px;
+    }
+
+    /* Tentang */
+    #tentang p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* Layanan */
+    .layanan .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .layanan .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
+    .layanan img {
+      max-height: 120px;
+      object-fit: contain;
+    }
+    .layanan h5 {
+      font-weight: 600;
+      color: #003366;
+    }
+    .btn-info {
+      background-color: #003366;
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 20px;
+    }
+    .btn-info:hover {
+      background-color: #002244;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #003366;
+      color: white;
+      padding: 30px 0;
+      font-size: 0.95rem;
+    }
+    .footer i {
+      color: #ffc107;
+    }
+    .footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animasi Goyang */
+    @keyframes goyang {
+      from {
+        transform: rotate(-5deg);
+      }
+      to {
+        transform: rotate(5deg);
+      }
+    }
+
+    /* Peta */
+    .map-container {
+      margin-top: 20px;
+      max-width: 100%;
+      height: 300px;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .map-container iframe {
+      border: 0;
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+    <div class="container">
+      <img src="logo.png" alt="Logo SI PANDA" width="50" height="50" class="me-2" />
+      <a class="navbar-brand" href="#">SI PANDA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Beranda</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container" data-aos="fade-up">
+      <h1>Sistem Pengaduan Prasarana Perhubungan Darat</h1>
+      <p>DINAS PERHUBUNGAN PROVINSI SULAWESI TENGAH</p>
+      <a href="#layanan" class="btn btn-primary mt-4">Lihat Layanan</a>
+    </div>
+  </section>
+
+  <!-- Tentang -->
+  <section id="tentang" class="py-5">
+    <div class="container" data-aos="fade-up">
+      <!-- Judul dengan gambar kiri-kanan -->
+      <div class="d-flex justify-content-center align-items-center mb-4">
+        <img
+          src="gerak.png"
+          alt="Gambar Bergerak"
+          class="gerak-img me-3"
+          style="width: 60px; height: auto; animation: goyang 1s infinite alternate"
+        />
+        <h2 class="section-title m-0">Tentang SI PANDA</h2>
+        <img
+          src="gerak.png"
+          alt="Gambar Bergerak"
+          class="gerak-img ms-3"
+          style="width: 60px; height: auto; animation: goyang 1s infinite alternate"
+        />
+      </div>
+
+      <!-- Deskripsi -->
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <p class="text-center">
+            <strong>SI PANDA</strong> adalah platform resmi Dinas Perhubungan Provinsi Sulawesi Tengah untuk memudahkan masyarakat melaporkan permasalahan prasarana lalu lintas dengan cepat, mudah, dan transparan.<br /><br />
+            Dari <em>lampu lalu lintas</em> yang rusak, <em>rambu hilang</em>, hingga <em>marka jalan</em> yang memudar — semua dapat dilaporkan secara daring untuk segera ditindaklanjuti.
+          </p>
+        </div>
+      </div>
+
+      <!-- Peta Lokasi -->
+      <div class="map-container d-flex justify-content-center" data-aos="fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.143842019524!2d119.88294631526086!3d-0.9009292991033773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d8bee75314e9c49%3A0x55ce87b8cd88502a!2sDinas%20Perhubungan%20Provinsi%20Sulawesi%20Tengah!5e0!3m2!1sid!2sid!4v1691935250000!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Layanan -->
+  <section id="layanan" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Layanan Pengaduan</h2>
+      <div class="row g-4 layanan">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="card text-center p-4">
+            <img src="rambu.png" class="mx-auto" alt="Rambu" />
+            <h5 class="mt-3">Rambu</h5>
+            <p>Layanan pengaduan rambu lalu lintas: peringatan, larangan, perintah, dan petunjuk.</p>
+            <a href="rambu.html" class="btn btn-info">Laporkan</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="card text-center p-4">
+            <img src="marka.png" class="mx-auto" alt="Marka" />
+            <h5 class="mt-3">Marka</h5>
+            <p>Layanan pengaduan marka lalu lintas yang rusak, pudar, atau hilang.</p>
+            <a href="marka.html" class="btn btn-info">Laporkan</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card text-center p-4">
+            <img src="lampu.png" class="mx-auto" alt="Lampu Jalan" />
+            <h5 class="mt-3">Lampu Jalan</h5>
+            <p>Layanan pengaduan LPJU (Lampu Penerangan Jalan Umum) yang mati, rusak, atau belum tersedia.</p>
+            <a href="lampu.html" class="btn btn-info">Laporkan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="kontak" class="footer text-center">
+    <div class="container" data-aos="fade-up">
+      <p class="mb-1">&copy; 2025 Dinas Perhubungan Provinsi Sulawesi Tengah. All rights reserved.</p>
+      <p class="mb-1"><i class="fas fa-map-marker-alt me-1"></i>Jl. RA Kartini No. 35, Kota Palu</p>
+      <p><i class="fas fa-envelope me-1"></i>dishub@sultengprov.go.id | <i class="fas fa-phone me-1"></i>(0451) 423039</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pengaduan LPJU</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('lampu.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      margin: 50px auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #2358b9;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 12px;
+      display: block;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    input[type="file"] {
+      padding: 5px;
+    }
+    button {
+      background-color: #2358b9;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #1d4793;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Pengaduan LPJU</h1>
+  <form id="pengaduanForm">
+    <label for="nama">Nama Pelapor</label>
+    <input type="text" id="nama" name="nama" required>
+
+    <label for="nomor">Nomor HP/WhatsApp</label>
+    <input type="number" id="nomor" name="nomor" required>
+
+    <label for="tanggal">Tanggal Pelapor</label>
+    <input type="date" id="tanggal" name="tanggal" required>
+
+    <label for="ruas">Ruas Lokasi Kerusakan</label>
+    <input type="text" id="ruas" name="ruas" required>
+
+    <label for="deskripsi">Deskripsi Pengaduan</label>
+    <textarea id="deskripsi" name="deskripsi" rows="5" required></textarea>
+
+    <label for="bukti">Upload Bukti (Foto/Video)</label>
+    <input type="file" id="bukti" name="bukti">
+
+    <button type="submit">Kirim Pengaduan</button>
+  </form>
+</div>
+<script>
+    document.getElementById("pengaduanForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      var formData = new FormData(this);
+      var file = document.getElementById("bukti").files[0];
+
+      if (file) {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          var base64 = reader.result.split(",")[1];
+          formData.set("bukti", base64);
+          formData.append("filename", file.name);
+          formData.append("filetype", file.type);
+          sendData(formData);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        sendData(formData);
+      }
+    });
+
+    function sendData(formData) {
+      fetch("https://script.google.com/macros/s/AKfycbwppDD1W0Svjsxo6TXfe9AlLEiim5g7D21B05PozOvq9XKGY_pReKHhRsZdD3DZwxM/exec", {
+        method: "POST",
+        body: formData
+     })
+  .then(() => {
+    window.location.href = "terimakasih.html"; // langsung pindah halaman
+  })
+  .catch(err => {
+    alert("Error: " + err);
+  });
+}
+  </script>
+</body>
+</html>
+
+
+

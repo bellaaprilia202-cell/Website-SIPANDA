@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Pengaduan Masyarakat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-image: url('https://source.unsplash.com/1600x400/?city,public'); /* Gambar header dari Unsplash */
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+
+    header h1 {
+      font-size: 3em;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #222;
+      color: #ccc;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Website Pengaduan Masyarakat</h1>
+  </header>
+
+  <div class="container">
+    <h2>Form Pengaduan</h2>
+    <form action="#" method="POST">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" name="nama" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="kategori">Kategori Pengaduan</label>
+      <select id="kategori" name="kategori">
+        <option value="jalan">Jalan Rusak</option>
+        <option value="sampah">Sampah</option>
+        <option value="air">Air Bersih</option>
+        <option value="lainnya">Lainnya</option>
+      </select>
+
+      <label for="isi">Isi Pengaduan</label>
+      <textarea id="isi" name="isi" rows="6" required></textarea>
+
+      <label for="bukti">Upload Bukti (opsional)</label>
+      <input type="file" id="bukti" name="bukti">
+
+      <button type="submit">Kirim Pengaduan</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Website Pengaduan Masyarakat. All rights reserved.
+  </footer>
+
+</body>
+</html>
